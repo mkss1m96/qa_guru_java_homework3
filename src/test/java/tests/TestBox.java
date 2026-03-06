@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class testBox extends testBase {
+public class TestBox extends TestBase {
 
     @Test
     void successfulFileFormTest() {
@@ -42,6 +42,7 @@ public class testBox extends testBase {
         $(".table-responsive ").shouldHave(text("English"));
         $(".table-responsive ").shouldHave(text("Sports"));
         $(".table-responsive ").shouldHave(text("London"));
+        $(".table-responsive ").shouldHave(text("bigl.png"));
         $(".table-responsive ").shouldHave(text("NCR Delhi"));
     }
 }
