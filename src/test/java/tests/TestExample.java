@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.*;
 
-public class testExample {
+public class TestExample {
 
     @BeforeEach
     void start_browser(){

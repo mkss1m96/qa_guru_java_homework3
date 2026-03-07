@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {
     @BeforeAll
-    static void beforeAll(){
+    static void setUp(){
         Configuration.browser = "Chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
