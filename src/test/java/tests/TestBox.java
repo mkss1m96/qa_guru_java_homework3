@@ -10,16 +10,16 @@ import static tests.testdata.TestData.*;
 public class TestBox extends TestBase {
 
     @Test
-    void successfulFileFormTest() {
+    void successfulFileFormTestReg() {
         open("/automation-practice-form");
 
         executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
 
         $("[id=firstName]").setValue(firstName);
         $("[id=lastName]").setValue(lastName);
-        $("[id=userEmail]").setValue(userEmail);
+        $("[id=userEmail]").setValue(email);
         $("[id=genterWrapper]").$(byText(sex)).click();
-        $("[id=userNumber]").setValue(userNumber);
+        $("[id=userNumber]").setValue(number);
         $("[id=dateOfBirthInput]").click();
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
@@ -36,14 +36,26 @@ public class TestBox extends TestBase {
         $("[id=submit]").click();
 
         $(".table-responsive ").shouldHave(text(full_name));
-        $(".table-responsive ").shouldHave(text(userEmail));
+        $(".table-responsive ").shouldHave(text(email));
         $(".table-responsive ").shouldHave(text(sex));
-        $(".table-responsive ").shouldHave(text(userNumber));
+        $(".table-responsive ").shouldHave(text(number));
         $(".table-responsive ").shouldHave(text(full_date));
         $(".table-responsive ").shouldHave(text(subjects));
         $(".table-responsive ").shouldHave(text(hobbies));
         $(".table-responsive ").shouldHave(text(address));
         $(".table-responsive ").shouldHave(text("bigl.png"));
         $(".table-responsive ").shouldHave(text(state_city));
+    }
+
+    @Test
+    void successfulFileFormTestBox() {
+        open("/text-box");
+
+        executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
+
+        $("#userName").setValue(full_name);
+        $("#userEmail").setValue(email);
+        $("#currentAddress").setValue(address);
+        $("#permanentAddress").setValue(address);
     }
 }
