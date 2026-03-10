@@ -57,5 +57,12 @@ public class TestBox extends TestBase {
         $("#userEmail").setValue(email);
         $("#currentAddress").setValue(address);
         $("#permanentAddress").setValue(address);
+
+        $("#submit").click();
+
+        $("[id=output] [id=name]").shouldHave(text(full_name));
+        $("[id=output] [id=email]").shouldHave(text(email));
+        $("[id=output] [id=currentAddress]").shouldHave(text(address));
+        $("[id=output] [id=permanentAddress]").shouldHave(text(address));
     }
 }
