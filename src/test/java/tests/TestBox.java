@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.TextBoxPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -8,6 +9,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static tests.testdata.TestData.*;
 
 public class TestBox extends TestBase {
+
+    TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
     void successfulFileFormTestReg() {
@@ -49,9 +52,11 @@ public class TestBox extends TestBase {
 
     @Test
     void successfulFileFormTestBox() {
-        open("/text-box");
-
         executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
+
+        textBoxPage.openPage();
+        textBoxPage.typeUserName(full_name);
+        textBoxPage.typeUserEmail(email);
 
         $("#userName").setValue(full_name);
         $("#userEmail").setValue(email);
