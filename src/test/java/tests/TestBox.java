@@ -1,73 +1,61 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.RegistrationFormPage;
 import pages.TextBoxPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.testdata.TestData.*;
 
 public class TestBox extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
+    RegistrationFormPage regBoxPage = new RegistrationFormPage();
 
     @Test
     void successfulFileFormTestReg() {
-        open("/automation-practice-form");
-
-        executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
-
-        $("[id=firstName]").setValue(firstName);
-        $("[id=lastName]").setValue(lastName);
-        $("[id=userEmail]").setValue(email);
-        $("[id=genterWrapper]").$(byText(sex)).click();
-        $("[id=userNumber]").setValue(number);
-        $("[id=dateOfBirthInput]").click();
-        $(".react-datepicker__month-select").selectOption(month);
-        $(".react-datepicker__year-select").selectOption(year);
-        $(".react-datepicker__day--0" + day).click();
-        $("[id=subjectsInput]").setValue(subjects).pressEnter();
-        $("[id=hobbiesWrapper]").$(byText(hobbies)).click();
-        $("[id=uploadPicture]").uploadFromClasspath("bigl.png");
-        $("[id=currentAddress]").setValue(address);
-        $("[id=state]").click();
-        $("[id=react-select-3-input]").setValue(state).pressEnter();
-        $("[id=city]").click();
-        $("[id=react-select-4-input]").setValue(city).pressEnter();
-
-        $("[id=submit]").click();
-
-        $(".table-responsive ").shouldHave(text(full_name));
-        $(".table-responsive ").shouldHave(text(email));
-        $(".table-responsive ").shouldHave(text(sex));
-        $(".table-responsive ").shouldHave(text(number));
-        $(".table-responsive ").shouldHave(text(full_date));
-        $(".table-responsive ").shouldHave(text(subjects));
-        $(".table-responsive ").shouldHave(text(hobbies));
-        $(".table-responsive ").shouldHave(text(address));
-        $(".table-responsive ").shouldHave(text("bigl.png"));
-        $(".table-responsive ").shouldHave(text(state_city));
+        regBoxPage.openPage();
+        regBoxPage.fixBan();
+        regBoxPage.
+                typeFirstName(firstName).
+                typeLastName(lastName).
+                typeUserEmail(email).
+                setGender(sex).
+                typeUserNumber(number).
+                setDateOfBirth(day, month, year).
+                setSubjects(subjects).
+                setHobbies(hobbies).setPicture(hobbies).
+                setPicture("bigl.png").
+                typeCurrentAddress(address).
+                setState(state).
+                setCity(city).
+                submitForm().
+                checkField(full_name).
+                checkField(email).
+                checkField(sex).
+                checkField(number).
+                checkField(full_date).
+                checkField(subjects).
+                checkField(hobbies).
+                checkField(address).
+                checkField("bigl.png").
+                checkField(state_city);
     }
 
     @Test
     void successfulFileFormTestBox() {
-        executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
-
         textBoxPage.openPage();
-        textBoxPage.typeUserName(full_name);
-        textBoxPage.typeUserEmail(email);
+        textBoxPage.fixBan();
 
-        $("#userName").setValue(full_name);
-        $("#userEmail").setValue(email);
-        $("#currentAddress").setValue(address);
-        $("#permanentAddress").setValue(address);
-
-        $("#submit").click();
-
-        $("[id=output] [id=name]").shouldHave(text(full_name));
-        $("[id=output] [id=email]").shouldHave(text(email));
-        $("[id=output] [id=currentAddress]").shouldHave(text(address));
-        $("[id=output] [id=permanentAddress]").shouldHave(text(address));
+        textBoxPage.
+                typeUserName(full_name).
+                typeUserEmail(email).
+                typeUserCurrentAddress(address).
+                userPermanentAddress(address).
+                submitForm().
+                checkField("name", full_name).
+                checkField("email", email).
+                checkField("currentAddress", address).
+                checkField("permanentAddress", address);
     }
 }
