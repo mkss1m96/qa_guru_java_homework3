@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationFormPage;
 import pages.TextBoxPage;
 
-import static com.codeborne.selenide.Selenide.*;
-import static tests.testdata.TestData.*;
+import static testdata.TestData.*;
 
 public class TestBox extends TestBase {
 
