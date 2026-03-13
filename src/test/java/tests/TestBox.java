@@ -10,7 +10,7 @@ import static tests.testdata.TestData.*;
 public class TestBox extends TestBase {
 
     @Test
-    void successfulFileFormTestReg() {
+    void successfulFileFormRegTest() {
         open("/automation-practice-form");
 
         executeJavaScript("document.getElementById('fixedban')?.remove();document.querySelector('footer')?.remove();");
