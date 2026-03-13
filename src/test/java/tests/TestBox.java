@@ -23,7 +23,7 @@ public class TestBox extends TestBase {
                 typeUserNumber(number).
                 setDateOfBirth(day, month, year).
                 setSubjects(subjects).
-                setHobbies(hobbies).setPicture(hobbies).
+                setHobbies(hobbies).
                 setPicture("bigl.png").
                 typeCurrentAddress(address).
                 setState(state).

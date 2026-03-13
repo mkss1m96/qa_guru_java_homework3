@@ -4,10 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.TableResultComponent;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static testdata.TestData.*;
 
 public class RegistrationFormPage {
 
@@ -54,7 +52,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setGender(String value) {
-        genderContainer.$(byText(sex)).click();
+        genderContainer.$(byText(value)).click();
         return this;
     }
 
@@ -75,12 +73,12 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setHobbies(String value) {
-        hobbiesContainer.$(byText(hobbies)).click();
+        hobbiesContainer.$(byText(value)).click();
         return this;
     }
 
     public RegistrationFormPage setPicture(String value) {
-        uploadPicture.uploadFromClasspath("bigl.png");
+        uploadPicture.uploadFromClasspath(value);
         return this;
     }
 
@@ -91,13 +89,13 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage setState(String value) {
         stateSelect.click();
-        stateSelectContainer.setValue(state).pressEnter();
+        stateSelectContainer.setValue(value).pressEnter();
         return this;
     }
 
     public RegistrationFormPage setCity(String value) {
         citySelect.click();
-        citySelectContainer.setValue(city).pressEnter();
+        citySelectContainer.setValue(value).pressEnter();
         return this;
     }
 
