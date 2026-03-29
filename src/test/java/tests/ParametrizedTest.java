@@ -96,7 +96,7 @@ public class ParametrizedTest extends TestBase{
                 typeFirstName(firstName).
                 typeLastName(lastName).
                 typeUserEmail(email).
-                setGender(gender.name()).
+                setGender(gender.description).
                 typeUserNumber(number).
                 setDateOfBirth(day, month, year).
                 setSubjects(subjects).
@@ -108,7 +108,7 @@ public class ParametrizedTest extends TestBase{
                 submitForm().
                 checkField(full_name).
                 checkField(email).
-                checkField(gender.name()).
+                checkField(gender.description).
                 checkField(number).
                 checkField(full_date).
                 checkField(subjects).

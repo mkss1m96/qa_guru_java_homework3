@@ -1,9 +1,9 @@
 package pages.data;
 
 public enum Gender {
-    Male("Мужчина"),
-    Female("Женщина"),
-    Other("Другое");
+    MALE("Male"),
+    FEMALE("Female"),
+    OTHER("Other");
 
     public final String description;
 
