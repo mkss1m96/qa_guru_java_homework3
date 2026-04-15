@@ -4,9 +4,9 @@ plugins {
 //    id 'org.jetbrains.kotlin.jvm' version '1.9.24'   // добавь эту строку
 }
 
-kotlin {
-    jvmToolchain(17)
-}
+//kotlin {
+//    jvmToolchain(17)
+//}
 
 repositories {
     mavenCentral()
