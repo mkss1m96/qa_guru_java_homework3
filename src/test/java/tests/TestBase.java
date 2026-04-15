@@ -16,10 +16,11 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
     @BeforeAll
     static void setUp() {
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.baseUrl = System.getProperty("siteUrl");
-        Configuration.browserVersion = System.getProperty("browserVersion");
+
+        Configuration.browser = System.getProperty("browser","chrome");
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
+        Configuration.baseUrl = System.getProperty("siteUrl","https://demoqa.com");
+        Configuration.browserVersion = System.getProperty("browserVersion","128");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,

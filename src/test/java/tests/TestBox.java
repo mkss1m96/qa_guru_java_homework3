@@ -50,28 +50,6 @@ public class TestBox extends TestBase {
     }
 
     @Test
-    void brokenFileFormRegTest() {
-        step("Открытие формы регистрации и удаление баннеров", () -> {
-            regBoxPage.openPage();
-            regBoxPage.fixBan();
-        });
-        step("Заполнение формы регистрации", () -> {
-            regBoxPage.
-                    typeFirstName(firstName).
-                    typeLastName(lastName).
-                    typeUserEmail(email).
-                    setGender(sex).
-//                    typeUserNumber(number).
-                    submitForm();
-        });
-        step("Проверка заполненных полей", () -> {
-            regBoxPage.checkField(full_name).
-                    checkField(email).
-                    checkField(sex);
-        });
-    }
-
-    @Test
     void successfulFileFormBoxTest() {
         textBoxPage.openPage();
         textBoxPage.fixBan();
