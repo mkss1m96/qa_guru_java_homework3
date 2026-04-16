@@ -27,3 +27,5 @@ replay_pid*
 /build
 /.gradle
 *.class
+/.vscode
+/.allure-results
